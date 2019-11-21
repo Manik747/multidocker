@@ -21,9 +21,9 @@ after_success:
   - docker push mmartin747/multi-server ./server
   - docker push mmartin747/multi-worker ./worker
 
-deploy: 
+deploy:
   provider: elasticbeanstalk
-  region: us-east-2 
+  region: us-east-2
   app: Multi-docker
   env: MultiDocker-env
   bucket_name: elasticbeanstalk-us-east-2-838336851558
@@ -32,10 +32,6 @@ deploy:
     branch: master
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
-
-
-
-
 # access_key_id: $AWS_ACCESS_KEY
 # secret_access_key: $AWS_SECRET_KEY
 
