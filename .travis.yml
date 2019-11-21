@@ -20,3 +20,26 @@ after_success:
   - docker push mmartin747/multi-client ./client
   - docker push mmartin747/multi-server ./server
   - docker push mmartin747/multi-worker ./worker
+
+deploy: 
+  provider: elasticbeanstalk
+  region: us-east-2 
+  app: Multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-us-east-2-838336851558
+  bucket_path: docker-multi
+  on:
+    branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+      secure: $AWS_SECRET_KEY
+      
+
+
+
+# access_key_id: $AWS_ACCESS_KEY
+# secret_access_key: $AWS_SECRET_KEY
+
+# deploy:
+#   edge: true
+#   provider: elasticbeanstalk
